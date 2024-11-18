@@ -1,37 +1,33 @@
 import { Calendar, Heart, Home, LogIn, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-const navLinks = [
-	{
-		text: 'Home',
-		icon: <Home size={16} />,
-		href: '/',
-	},
-	{
-		text: 'Donations',
-		icon: <Heart size={16} />,
-		href: '/donations',
-	},
-	{
-		text: 'Campaigns',
-		icon: <Calendar size={16} />,
-		href: '/campaigns',
-	},
-];
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoggedIn] = useState(false);
-
+	const navLinks = [
+		{
+			text: 'Home',
+			icon: <Home size={16} />,
+			href: '/',
+		},
+		{
+			text: 'Campaigns',
+			icon: <Calendar size={16} />,
+			href: '/campaigns',
+		},
+	];
 	return (
 		<nav className="sticky top-0 z-50 bg-primary text-white shadow-lg">
 			<div className="max-w-7xl mx-auto px-4">
 				<div className="flex justify-between items-center h-16">
 					{/* Logo */}
-					<div className="flex items-center space-x-2">
-						<Heart className="h-8 w-8 text-secondary" />
-						<span className="font-bold text-xl">Winter Warmth</span>
-					</div>
+					<NavLink to="/">
+						<div className="flex items-center space-x-2">
+							<Heart className="h-8 w-8 text-secondary" />
+							<span className="font-bold text-xl">Winter Warmth</span>
+						</div>
+					</NavLink>
 
 					{/* Desktop Navigation */}
 					<div className="hidden md:flex items-center space-x-8">
