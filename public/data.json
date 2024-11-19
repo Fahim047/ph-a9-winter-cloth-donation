@@ -7,9 +7,13 @@
 		"status": "Active",
 		"contactInfo": "dhaka@donationapp.com | +88012345678",
 		"division": "Dhaka",
-		"items": ["Blankets", "Warm Clothes", "Sweaters"],
-		"targetBeneficiaries": 500,
-		"collectionPoint": "Dhaka City Corporation Office"
+		"acceptedItems": ["Blankets", "Warm Clothes", "Sweaters"],
+		"currentDonations": 200,
+		"targetDonations": 500,
+		"collectionPoint": "Dhaka Central Relief Office",
+		"startDate": "2024-11-01",
+		"endDate": "2024-12-31",
+		"organizerName": "Warm Hearts Initiative"
 	},
 	{
 		"id": 2,
@@ -19,9 +23,13 @@
 		"status": "Active",
 		"contactInfo": "rajshahi@donationapp.com | +88087654321",
 		"division": "Rajshahi",
-		"items": ["Jackets", "Blankets", "Gloves"],
-		"targetBeneficiaries": 300,
-		"collectionPoint": "Rajshahi District Office"
+		"acceptedItems": ["Jackets", "Blankets", "Gloves"],
+		"currentDonations": 100,
+		"targetDonations": 300,
+		"collectionPoint": "Rajshahi District Office",
+		"startDate": "2024-11-15",
+		"endDate": "2025-01-15",
+		"organizerName": "Rajshahi Warmth Volunteers"
 	},
 	{
 		"id": 3,
@@ -31,9 +39,13 @@
 		"status": "Active",
 		"contactInfo": "chattogram@donationapp.com | +88012349876",
 		"division": "Chattogram",
-		"items": ["Warm Clothes", "Sweaters", "Caps"],
-		"targetBeneficiaries": 450,
-		"collectionPoint": "Chattogram Municipal Office"
+		"acceptedItems": ["Warm Clothes", "Sweaters", "Caps"],
+		"currentDonations": 150,
+		"targetDonations": 450,
+		"collectionPoint": "Chattogram Municipal Office",
+		"startDate": "2024-11-05",
+		"endDate": "2025-01-10",
+		"organizerName": "Chattogram Community Aid"
 	},
 	{
 		"id": 4,
@@ -43,9 +55,13 @@
 		"status": "Active",
 		"contactInfo": "khulna@donationapp.com | +88054321234",
 		"division": "Khulna",
-		"items": ["Sweaters", "Scarves", "Blankets"],
-		"targetBeneficiaries": 200,
-		"collectionPoint": "Khulna City Office"
+		"acceptedItems": ["Sweaters", "Scarves", "Blankets"],
+		"currentDonations": 50,
+		"targetDonations": 200,
+		"collectionPoint": "Khulna City Office",
+		"startDate": "2024-12-01",
+		"endDate": "2025-02-28",
+		"organizerName": "Khulna Aid Network"
 	},
 	{
 		"id": 5,
@@ -55,21 +71,29 @@
 		"status": "Active",
 		"contactInfo": "sylhet@donationapp.com | +88087651234",
 		"division": "Sylhet",
-		"items": ["Blankets", "Warm Clothes", "Jackets"],
-		"targetBeneficiaries": 400,
-		"collectionPoint": "Sylhet Tea Workers Union"
+		"acceptedItems": ["Blankets", "Warm Clothes", "Jackets"],
+		"currentDonations": 100,
+		"targetDonations": 400,
+		"collectionPoint": "Sylhet Tea Workers Union",
+		"startDate": "2024-11-20",
+		"endDate": "2025-01-31",
+		"organizerName": "Sylhet Winter Relief Group"
 	},
 	{
 		"id": 6,
 		"title": "Chilly Nights in Rangpur",
 		"image": "https://www.baitunnoor.com.bd/wp-content/uploads/2023/01/17-1.jpg",
 		"description": "Help us bring warmth to families living in Rangpur's rural areas.",
-		"status": "Active",
+		"status": "Finished",
 		"contactInfo": "rangpur@donationapp.com | +88033445566",
 		"division": "Rangpur",
-		"items": ["Blankets", "Warm Clothes", "Caps"],
-		"targetBeneficiaries": 350,
-		"collectionPoint": "Rangpur City Corporation Office"
+		"acceptedItems": ["Blankets", "Warm Clothes", "Caps"],
+		"currentDonations": 200,
+		"targetDonations": 350,
+		"collectionPoint": "Rangpur City Corporation Office",
+		"startDate": "2024-10-01",
+		"endDate": "2024-11-15",
+		"organizerName": "Rangpur Aid Foundation"
 	},
 	{
 		"id": 7,
@@ -79,9 +103,13 @@
 		"status": "Active",
 		"contactInfo": "mymensingh@donationapp.com | +88056783412",
 		"division": "Mymensingh",
-		"items": ["Gloves", "Sweaters", "Scarves"],
-		"targetBeneficiaries": 600,
-		"collectionPoint": "Mymensingh Municipal Office"
+		"acceptedItems": ["Gloves", "Sweaters", "Scarves"],
+		"currentDonations": 150,
+		"targetDonations": 600,
+		"collectionPoint": "Mymensingh Municipal Office",
+		"startDate": "2024-12-01",
+		"endDate": "2025-02-15",
+		"organizerName": "Mymensingh Volunteers"
 	},
 	{
 		"id": 8,
@@ -91,21 +119,29 @@
 		"status": "Active",
 		"contactInfo": "barishal@donationapp.com | +88067894512",
 		"division": "Barishal",
-		"items": ["Blankets", "Jackets", "Warm Clothes"],
-		"targetBeneficiaries": 500,
-		"collectionPoint": "Barishal Flood Relief Center"
+		"acceptedItems": ["Blankets", "Jackets", "Warm Clothes"],
+		"currentDonations": 250,
+		"targetDonations": 500,
+		"collectionPoint": "Barishal Flood Relief Center",
+		"startDate": "2024-11-25",
+		"endDate": "2025-01-20",
+		"organizerName": "Barishal Flood Relief Group"
 	},
 	{
 		"id": 9,
 		"title": "Dhaka Blanket Drive",
 		"image": "https://wfad.se/wp-content/uploads/2022/01/MA-Khulna-Bangladesh-9-1-1024x768.jpg",
 		"description": "Ensure no one in Dhaka sleeps cold this winter with your generous donations.",
-		"status": "Active",
+		"status": "Finished",
 		"contactInfo": "dhaka2@donationapp.com | +88012345432",
 		"division": "Dhaka",
-		"items": ["Blankets", "Caps", "Warm Clothes"],
-		"targetBeneficiaries": 700,
-		"collectionPoint": "Dhaka Central Relief Office"
+		"acceptedItems": ["Blankets", "Caps", "Warm Clothes"],
+		"currentDonations": 400,
+		"targetDonations": 700,
+		"collectionPoint": "Dhaka Central Relief Office",
+		"startDate": "2024-09-15",
+		"endDate": "2024-11-10",
+		"organizerName": "Dhaka Central Aid"
 	},
 	{
 		"id": 10,
@@ -115,8 +151,12 @@
 		"status": "Active",
 		"contactInfo": "rajshahi2@donationapp.com | +88087655543",
 		"division": "Rajshahi",
-		"items": ["Sweaters", "Gloves", "Blankets"],
-		"targetBeneficiaries": 300,
-		"collectionPoint": "Rajshahi Local Aid Center"
+		"acceptedItems": ["Sweaters", "Gloves", "Blankets"],
+		"currentDonations": 200,
+		"targetDonations": 300,
+		"collectionPoint": "Rajshahi Local Aid Center",
+		"startDate": "2024-11-01",
+		"endDate": "2025-01-15",
+		"organizerName": "Rajshahi Volunteers"
 	}
 ]

@@ -6,12 +6,12 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 export const googleProvider = new GoogleAuthProvider();
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyC9ZO9IjD05YBHSm5ukO_1Hmd21b3YVKXI',
-	authDomain: 'winter-warmth-288ad.firebaseapp.com',
-	projectId: 'winter-warmth-288ad',
-	storageBucket: 'winter-warmth-288ad.firebasestorage.app',
-	messagingSenderId: '248059207484',
-	appId: '1:248059207484:web:cc24df407ce4d7238fc839',
+	apiKey: import.meta.env.VITE_Firebase_ApiKey,
+	authDomain: import.meta.env.VITE_Firebase_AuthDomain,
+	projectId: import.meta.env.VITE_Firebase_ProjectId,
+	storageBucket: import.meta.env.VITE_Firebase_StorageBucket,
+	messagingSenderId: import.meta.env.VITE_Firebase_MessagingSenderId,
+	appId: import.meta.env.VITE_Firebase_AppId,
 };
 
 // Initialize Firebase

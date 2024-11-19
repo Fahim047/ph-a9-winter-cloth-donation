@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 const CampaignCard = ({ campaign }) => {
+	const navigate = useNavigate();
 	return (
 		<div className="bg-white shadow-lg rounded p-4">
 			<div className="relative">
@@ -23,9 +26,14 @@ const CampaignCard = ({ campaign }) => {
 			<h3 className="text-xl font-bold mt-2">{campaign.title}</h3>
 			<p className="text-gray-700 mt-1">{campaign.description}</p>
 			<p className="text-gray-500 mt-1">Division: {campaign.division}</p>
-			<button className="w-full bg-secondary hover:bg-secondary-dark text-white px-4 py-2 mt-3 rounded">
-				Donate Now
-			</button>
+			{campaign.status === 'Active' && (
+				<button
+					className="w-full bg-secondary hover:bg-secondary-dark text-white px-4 py-2 mt-3 rounded"
+					onClick={() => navigate(`/campaigns/${campaign.id}`)}
+				>
+					Donate Now
+				</button>
+			)}
 		</div>
 	);
 };
