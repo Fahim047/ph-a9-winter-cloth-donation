@@ -1,6 +1,7 @@
 import { Calendar, Heart, Home, LogIn, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useAuth } from '../../hooks';
 
 const Navbar = () => {
@@ -50,7 +51,11 @@ const Navbar = () => {
 								</div>
 								<button
 									className="bg-transparent border border-secondary hover:bg-secondary-dark px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
-									onClick={handleLogOut}
+									onClick={() =>
+										handleLogOut().then(() =>
+											Swal.fire('Success', 'Logout Successful', 'success')
+										)
+									}
 								>
 									Logout
 								</button>

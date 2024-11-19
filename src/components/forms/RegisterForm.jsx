@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import GoogleIcon from '../../assets/icons/google.svg';
 import { useAuth } from '../../hooks';
 const RegisterForm = () => {
+	const { user, setUser, createUser, handleUpdateProfile } = useAuth();
 	const [name, setName] = useState('');
+	const [photoURL, setPhotoURL] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
@@ -12,16 +15,28 @@ const RegisterForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target);
+		if (password !== confirmPassword) {
+			Swal.fire('Error', 'Passwords do not match', 'error');
+			return;
+		}
+		createUser(email, password).then((res) => {
+			setUser(res.user);
+			handleUpdateProfile({ displayName: name, photoURL }).then(() =>
+				navigate('/')
+			);
+		});
 	};
 	const handleGoogleLogin = () => {
 		handleSignInWithGoogle().then((res) => {
 			navigate(location?.state ? location.state : '/');
+			Swal.fire('Success', 'Login successful', 'success');
 		});
 	};
-
+	if (user && user?.accessToken) {
+		return <Navigate to="/" />;
+	}
 	return (
-		<div className="flex justify-center items-center min-h-screen bg-[#F5F5F5]">
+		<div className="flex justify-center items-center min-h-screen bg-neutral">
 			<div className="w-96 bg-white shadow-lg rounded-lg overflow-hidden">
 				<div className="bg-primary text-white text-center py-4">
 					<h2 className="text-xl font-bold">Register</h2>
@@ -29,9 +44,17 @@ const RegisterForm = () => {
 				<form onSubmit={handleSubmit} className="p-6 space-y-4">
 					<input
 						type="text"
-						placeholder="Your name"
+						placeholder="Name"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
+						className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
+						required
+					/>
+					<input
+						type="text"
+						placeholder="Photo URL"
+						value={photoURL}
+						onChange={(e) => setPhotoURL(e.target.value)}
 						className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
 						required
 					/>

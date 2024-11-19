@@ -1,26 +1,38 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import GoogleIcon from '../../assets/icons/google.svg';
 import { useAuth } from '../../hooks';
 const LoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
-	const { user, setUser, handleSignInWithGoogle } = useAuth();
+	const { user, setUser, signInWithEmail, handleSignInWithGoogle } = useAuth();
 	const location = useLocation();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target);
+		signInWithEmail(email, password)
+			.then((res) => {
+				setUser(res.user);
+			})
+			.then(() => {
+				Swal.fire('Success', 'Login successful', 'success');
+			})
+			.catch((err) => Swal.fire('Error', err.message, 'error'));
 	};
 	const handleGoogleLogin = () => {
 		handleSignInWithGoogle().then((res) => {
+			Swal.fire('Success', 'Login successful', 'success');
 			navigate(location?.state ? location.state : '/');
 		});
 	};
+	if (user && user?.accessToken) {
+		return <Navigate to={location?.state ? location.state : '/'} />;
+	}
 
 	return (
-		<div className="flex justify-center items-center min-h-screen bg-[#F5F5F5]">
+		<div className="flex justify-center items-center min-h-screen bg-neutral">
 			<div className="w-96 bg-white shadow-lg rounded-lg overflow-hidden">
 				<div className="bg-primary text-white text-center py-4">
 					<h2 className="text-xl font-bold">Login</h2>
