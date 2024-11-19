@@ -52,9 +52,9 @@ const Footer = () => {
 							<input
 								type="email"
 								placeholder="Enter your email"
-								className="px-4 py-2 rounded-lg text-gray-800"
+								className="bg-inherit border border-secondary px-4 py-2 rounded-lg"
 							/>
-							<button className="bg-[#FF7F50] hover:bg-[#ff6b3d] px-4 py-2 rounded-lg transition-colors">
+							<button className="bg-secondary hover:bg-secondary-dark px-4 py-2 rounded-lg transition-colors">
 								Subscribe
 							</button>
 						</div>

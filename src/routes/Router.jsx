@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Login from '../components/forms/Login';
+import LoginForm from '../components/forms/LoginForm';
+import RegisterForm from '../components/forms/RegisterForm';
 import MainLayout from '../layouts/MainLayout';
 import CampaignsPage from '../pages/CampaignsPage';
 import Home from '../pages/Home';
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/login',
-		element: <Login />,
+		element: <LoginForm />,
 	},
 	{
 		path: '/register',
-		element: <h1>Create an account</h1>,
+		element: <RegisterForm />,
 	},
 ]);
 export default router;
