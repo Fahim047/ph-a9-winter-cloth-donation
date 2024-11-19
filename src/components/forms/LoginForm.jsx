@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import GoogleIcon from '../../assets/icons/google.svg';
+import { useAuth } from '../../hooks';
 const LoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
+	const { user, setUser, handleSignInWithGoogle } = useAuth();
+	const location = useLocation();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(e.target);
+	};
+	const handleGoogleLogin = () => {
+		handleSignInWithGoogle().then((res) => {
+			navigate(location?.state ? location.state : '/');
+		});
 	};
 
 	return (
@@ -50,6 +58,7 @@ const LoginForm = () => {
 					<button
 						type="button"
 						className="w-full border border-primary text-primary py-2 rounded flex items-center justify-center hover:bg-primary/10 transition duration-300 gap-2"
+						onClick={handleGoogleLogin}
 					>
 						<img src={GoogleIcon} alt="google icon" />
 						Continue with Google

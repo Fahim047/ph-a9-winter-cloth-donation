@@ -1,8 +1,10 @@
 import { Calendar, Heart, Home, LogIn, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../hooks';
 
 const Navbar = () => {
+	const { user, handleLogOut } = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoggedIn] = useState(false);
 	const navLinks = [
@@ -41,11 +43,17 @@ const Navbar = () => {
 								<span>{link.text}</span>
 							</NavLink>
 						))}
-						{isLoggedIn ? (
-							<div className="avatar">
-								<div className="w-24 mx-auto rounded-full">
-									<img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+						{user?.accessToken ? (
+							<div className="avatar flex gap-4 justify-center items-center">
+								<div className="size-10 mx-auto rounded-full">
+									<img src={user?.photoURL} className="object-fit-cover" />
 								</div>
+								<button
+									className="bg-transparent border border-secondary hover:bg-secondary-dark px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+									onClick={handleLogOut}
+								>
+									Logout
+								</button>
 							</div>
 						) : (
 							<NavLink

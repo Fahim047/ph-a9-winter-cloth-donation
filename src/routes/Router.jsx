@@ -5,6 +5,7 @@ import MainLayout from '../layouts/MainLayout';
 import CampaignsPage from '../pages/CampaignsPage';
 import Home from '../pages/Home';
 import NotFoundPage from '../pages/NotFound';
+import PrivateRoutes from './PrivateRoutes';
 
 const router = createBrowserRouter([
 	{
@@ -17,8 +18,20 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
+				path: 'login',
+				element: <LoginForm />,
+			},
+			{
+				path: 'register',
+				element: <RegisterForm />,
+			},
+			{
 				path: '/campaigns',
-				element: <CampaignsPage />,
+				element: (
+					<PrivateRoutes>
+						<CampaignsPage />
+					</PrivateRoutes>
+				),
 				loader: async () => {
 					const response = await fetch('/data.json');
 					const data = await response.json();
@@ -26,14 +39,6 @@ const router = createBrowserRouter([
 				},
 			},
 		],
-	},
-	{
-		path: '/login',
-		element: <LoginForm />,
-	},
-	{
-		path: '/register',
-		element: <RegisterForm />,
 	},
 ]);
 export default router;
