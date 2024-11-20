@@ -1,6 +1,7 @@
 import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
+	sendPasswordResetEmail,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
@@ -29,6 +30,9 @@ const AuthProvider = ({ children }) => {
 	const handleUpdateProfile = (updatedData) => {
 		return updateProfile(auth.currentUser, updatedData);
 	};
+	const handleResetPassword = (email) => {
+		return sendPasswordResetEmail(auth, email);
+	};
 
 	const authInfo = {
 		user,
@@ -39,6 +43,7 @@ const AuthProvider = ({ children }) => {
 		handleLogOut,
 		loading,
 		handleUpdateProfile,
+		handleResetPassword,
 	};
 
 	useEffect(() => {

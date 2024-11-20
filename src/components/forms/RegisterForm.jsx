@@ -19,18 +19,22 @@ const RegisterForm = () => {
 			Swal.fire('Error', 'Passwords do not match', 'error');
 			return;
 		}
-		createUser(email, password).then((res) => {
-			setUser(res.user);
-			handleUpdateProfile({ displayName: name, photoURL }).then(() =>
-				navigate('/')
-			);
-		});
+		createUser(email, password)
+			.then((res) => {
+				setUser(res.user);
+				handleUpdateProfile({ displayName: name, photoURL }).then(() =>
+					navigate('/')
+				);
+			})
+			.catch((err) => Swal.fire('Error', err.message, 'error'));
 	};
 	const handleGoogleLogin = () => {
-		handleSignInWithGoogle().then((res) => {
-			navigate(location?.state ? location.state : '/');
-			Swal.fire('Success', 'Login successful', 'success');
-		});
+		handleSignInWithGoogle()
+			.then((res) => {
+				navigate(location?.state ? location.state : '/');
+				Swal.fire('Success', 'Login successful', 'success');
+			})
+			.catch((err) => Swal.fire('Error', err.message, 'error'));
 	};
 	if (user && user?.accessToken) {
 		return <Navigate to="/" />;
