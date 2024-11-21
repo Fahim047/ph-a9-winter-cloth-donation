@@ -6,6 +6,7 @@ import {
 	signInWithPopup,
 	signOut,
 	updateProfile,
+	validatePassword,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { AuthContext } from '../contexts';
@@ -33,6 +34,9 @@ const AuthProvider = ({ children }) => {
 	const handleResetPassword = (email) => {
 		return sendPasswordResetEmail(auth, email);
 	};
+	const handlePasswordValidation = (passwordFromUser) => {
+		return validatePassword(auth, passwordFromUser);
+	};
 
 	const authInfo = {
 		user,
@@ -44,6 +48,7 @@ const AuthProvider = ({ children }) => {
 		loading,
 		handleUpdateProfile,
 		handleResetPassword,
+		handlePasswordValidation,
 	};
 
 	useEffect(() => {

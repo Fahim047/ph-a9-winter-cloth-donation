@@ -44,13 +44,13 @@ const DonationDetails = () => {
 		<div className="min-h-screen bg-base-200 py-12 px-4">
 			<div className="container mx-auto max-w-4xl">
 				{/* Campaign Details Card */}
-				<div className="card bg-neutral-dark shadow-xl mb-8">
+				<div className="card bg-base-100 shadow-xl mb-8">
 					<div className="card-body">
-						<figure className="mb-4">
+						<figure className="mb-4 max-h-[400px] rounded-xl">
 							<img
 								src={campaignDetails?.image}
 								alt=""
-								className="w-full rounded-xl"
+								className="w-full h-full rounded-xl"
 							/>
 						</figure>
 						<h1 className="card-title text-3xl">{campaignDetails?.title}</h1>
@@ -141,7 +141,7 @@ const DonationDetails = () => {
 									<button
 										type="button"
 										onClick={handleAddItem}
-										className="btn bg-primary hover:bg-primary-dark btn-sm"
+										className="btn text-neutral-light bg-secondary hover:bg-secondary-dark btn-sm"
 									>
 										Add Item
 									</button>

@@ -3,38 +3,53 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleIcon from '../../assets/icons/google.svg';
 import { useAuth } from '../../hooks';
+import { validatePassword } from '../../utils/validatePassword';
 const RegisterForm = () => {
-	const { user, setUser, createUser, handleUpdateProfile } = useAuth();
 	const [name, setName] = useState('');
 	const [photoURL, setPhotoURL] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const navigate = useNavigate();
-	const { handleSignInWithGoogle } = useAuth();
+	const {
+		user,
+		setUser,
+		createUser,
+		handleUpdateProfile,
+		handleSignInWithGoogle,
+		handleLogOut,
+	} = useAuth();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password !== confirmPassword) {
-			Swal.fire('Error', 'Passwords do not match', 'error');
+		const passwordErrors = validatePassword(password, confirmPassword);
+		if (passwordErrors.length > 0) {
+			Swal.fire('Error', passwordErrors.join(', '), 'error');
 			return;
 		}
-		createUser(email, password)
-			.then((res) => {
-				setUser(res.user);
-				handleUpdateProfile({ displayName: name, photoURL }).then(() =>
-					navigate('/')
-				);
-			})
-			.catch((err) => Swal.fire('Error', err.message, 'error'));
+		try {
+			const res = await createUser(email, password);
+			Swal.fire(
+				'Success',
+				'Registration successful. You can login now',
+				'success'
+			);
+			setUser(res.user);
+			await handleUpdateProfile({ displayName: name, photoURL });
+			await handleLogOut();
+			navigate('/login');
+		} catch (err) {
+			Swal.fire('Error', err.message, 'error');
+		}
 	};
-	const handleGoogleLogin = () => {
-		handleSignInWithGoogle()
-			.then((res) => {
-				navigate(location?.state ? location.state : '/');
-				Swal.fire('Success', 'Login successful', 'success');
-			})
-			.catch((err) => Swal.fire('Error', err.message, 'error'));
+	const handleGoogleLogin = async () => {
+		try {
+			const res = await handleSignInWithGoogle();
+			navigate(location?.state || '/');
+			Swal.fire('Success', 'Login successful', 'success');
+		} catch (err) {
+			Swal.fire('Error', err.message, 'error');
+		}
 	};
 	if (user && user?.accessToken) {
 		return <Navigate to="/" />;

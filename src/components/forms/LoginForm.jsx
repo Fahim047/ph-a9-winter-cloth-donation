@@ -17,22 +17,25 @@ const LoginForm = () => {
 	} = useAuth();
 	const location = useLocation();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		signInWithEmail(email, password)
-			.then((res) => {
-				setUser(res.user);
-			})
-			.then(() => {
-				Swal.fire('Success', 'Login successful', 'success');
-			})
-			.catch((err) => Swal.fire('Error', err.message, 'error'));
-	};
-	const handleGoogleLogin = () => {
-		handleSignInWithGoogle().then((res) => {
+		try {
+			const res = await signInWithEmail(email, password);
+			setUser(res.user);
+			navigate(location?.state || '/');
 			Swal.fire('Success', 'Login successful', 'success');
-			navigate(location?.state ? location.state : '/');
-		});
+		} catch (err) {
+			Swal.fire('Error', err.message, 'error');
+		}
+	};
+	const handleGoogleLogin = async () => {
+		try {
+			const res = await handleSignInWithGoogle();
+			navigate(location?.state || '/');
+			Swal.fire('Success', 'Login successful', 'success');
+		} catch (err) {
+			Swal.fire('Error', err.message, 'error');
+		}
 	};
 
 	const onResetPassword = (resetEmail) => {
