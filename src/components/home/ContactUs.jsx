@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ContactUs = () => {
 	return (
 		<section className="py-12 bg-gray-50">
@@ -7,7 +5,7 @@ const ContactUs = () => {
 				<h2 className="text-3xl font-bold text-center text-primary-dark mb-8">
 					Contact Us
 				</h2>
-				<div className="max-w-2xl mx-auto">
+				<div className="max-w-2xl mx-auto animate__animated animate__backInLeft animate__3">
 					{/* Contact Form */}
 					<div className="bg-neutral-light shadow-md rounded-lg p-6">
 						<h3 className="text-xl font-semibold text-gray-700 mb-4">

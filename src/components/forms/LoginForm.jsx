@@ -47,7 +47,11 @@ const LoginForm = () => {
 		}
 		handleResetPassword(resetEmail)
 			.then(() => {
-				Swal.fire('Success', 'Password reset email sent', 'success');
+				Swal.fire('Success', 'Password reset email sent', 'success').then(
+					() => {
+						window.open('https://mail.google.com', '_blank');
+					}
+				);
 			})
 			.catch((err) => Swal.fire('Error', err.message, 'error'));
 	};

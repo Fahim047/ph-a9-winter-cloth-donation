@@ -1,16 +1,20 @@
+import { Eye, EyeOff, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleIcon from '../../assets/icons/google.svg';
 import { useAuth } from '../../hooks';
 import { validatePassword } from '../../utils/validatePassword';
+
 const RegisterForm = () => {
 	const [name, setName] = useState('');
 	const [photoURL, setPhotoURL] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
+	const [showPassword, setShowPassword] = useState(false);
 	const navigate = useNavigate();
+
 	const {
 		user,
 		setUser,
@@ -42,6 +46,7 @@ const RegisterForm = () => {
 			Swal.fire('Error', err.message, 'error');
 		}
 	};
+
 	const handleGoogleLogin = async () => {
 		try {
 			const res = await handleSignInWithGoogle();
@@ -51,9 +56,11 @@ const RegisterForm = () => {
 			Swal.fire('Error', err.message, 'error');
 		}
 	};
+
 	if (user && user?.accessToken) {
 		return <Navigate to="/" />;
 	}
+
 	return (
 		<div className="flex justify-center items-center min-h-screen bg-neutral">
 			<div className="w-96 bg-white shadow-lg rounded-lg overflow-hidden">
@@ -85,23 +92,40 @@ const RegisterForm = () => {
 						className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
 						required
 					/>
-					<input
-						type="password"
-						placeholder="Password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
-						required
-					/>
-
-					<input
-						type="password"
-						placeholder="Confirm Password"
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
-						required
-					/>
+					<div className="relative">
+						<input
+							type={showPassword ? 'text' : 'password'}
+							placeholder="Password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
+							required
+						/>
+						<button
+							type="button"
+							className="absolute inset-y-0 right-3 flex items-center text-primary focus:outline-none"
+							onClick={() => setShowPassword(!showPassword)}
+						>
+							{showPassword ? <EyeOffIcon className="h-5 w-5" /> : <Eye />}
+						</button>
+					</div>
+					<div className="relative">
+						<input
+							type={showPassword ? 'text' : 'password'}
+							placeholder="Confirm Password"
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+							className="w-full bg-inherit px-3 py-2 border border-primary/20 rounded focus:outline-none focus:ring-2 focus:ring-primary text-primary"
+							required
+						/>
+						<button
+							type="button"
+							className="absolute inset-y-0 right-3 flex items-center text-primary focus:outline-none"
+							onClick={() => setShowPassword(!showPassword)}
+						>
+							{showPassword ? <EyeOff /> : <Eye />}
+						</button>
+					</div>
 					<button
 						type="submit"
 						className="w-full bg-secondary text-white py-2 rounded hover:bg-secondary-dark transition duration-300"
