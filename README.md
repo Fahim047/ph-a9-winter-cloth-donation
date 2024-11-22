@@ -28,6 +28,7 @@ This is a donation web application where donors can donate cloths for the needy 
 - React Router Dom
 - Sweet Alert 2
 - Animate.css
+- AOS (Animate On Scroll)
 - Swipper Js
 
 **A star🌟 will motivate me. Thank you.**

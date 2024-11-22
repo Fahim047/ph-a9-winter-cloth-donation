@@ -5,12 +5,12 @@ const HowItWorks = () => {
 	return (
 		<section className="py-12 bg-neutral-light">
 			<div className="container mx-auto px-4">
-				<h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+				<h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
 					How It Works
 				</h2>
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
 					{/* Step 1 */}
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center" data-aos="zoom-out">
 						<div className="w-16 h-16 flex items-center justify-center bg-blue-600 text-white rounded-full mb-4">
 							<UserPlus />
 						</div>
@@ -24,7 +24,7 @@ const HowItWorks = () => {
 					</div>
 
 					{/* Step 2 */}
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center" data-aos="zoom-out">
 						<div className="w-16 h-16 flex items-center justify-center bg-green-600 text-white rounded-full mb-4">
 							<Search />
 						</div>
@@ -38,7 +38,7 @@ const HowItWorks = () => {
 					</div>
 
 					{/* Step 3 */}
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center" data-aos="zoom-out">
 						<div className="w-16 h-16 flex items-center justify-center bg-yellow-600 text-white rounded-full mb-4">
 							<HandHeart />
 						</div>
@@ -52,7 +52,7 @@ const HowItWorks = () => {
 					</div>
 
 					{/* Step 4 */}
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center" data-aos="zoom-out">
 						<div className="w-16 h-16 flex items-center justify-center bg-red-600 text-white rounded-full mb-4">
 							<ShoppingCart />
 						</div>

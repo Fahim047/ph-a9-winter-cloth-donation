@@ -1,6 +1,7 @@
 import { Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import FaceBookIcon from '../../assets/icons/facebook.svg';
+import XIcon from '../../assets/icons/x.svg';
 const FooterLink = ({ text }) => (
 	<li>
 		<Link to="/" className="text-gray-300 hover:text-white transition-colors">
@@ -23,6 +24,18 @@ const Footer = () => {
 						<p className="text-sm text-gray-300">
 							Bringing warmth to those in need across Bangladesh
 						</p>
+						<ul className="flex items-center gap-4">
+							<li>
+								<Link to="/">
+									<img src={FaceBookIcon} alt="" />
+								</Link>
+							</li>
+							<li>
+								<Link to="/">
+									<img src={XIcon} alt="" />
+								</Link>
+							</li>
+						</ul>
 					</div>
 
 					{/* Quick Links */}

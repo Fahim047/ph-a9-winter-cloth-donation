@@ -6,8 +6,9 @@ const SupportSection = () => {
 					src="https://svdpli.org/wp-content/uploads/2023/07/iStock-1393245537-1_11zon-1024x683.jpg"
 					alt="donate"
 					className="w-full h-full rounded-md"
+					data-aos="zoom-in"
 				/>
-				<div className="space-y-6">
+				<div className="space-y-6" data-aos="zoom-in">
 					<h1 className="text-2xl md:text-3xl lg:text-5xl  font-bold text-balance">
 						Supporting Those In Need
 					</h1>

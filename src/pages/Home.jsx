@@ -1,3 +1,4 @@
+import AboutUs from '../components/home/AboutUs';
 import Banner from '../components/home/Banner';
 import ContactUs from '../components/home/ContactUs';
 import SupportSection from '../components/home/SupportSection';
@@ -8,6 +9,7 @@ const Home = () => {
 	return (
 		<>
 			<Banner />
+			<AboutUs />
 			<Statistics />
 			<SupportSection />
 			<HowItWorks />
