@@ -4,6 +4,7 @@ import ContactUs from '../components/home/ContactUs';
 import SupportSection from '../components/home/SupportSection';
 import HowItWorks from '../components/HowItWorks';
 import Statistics from '../components/Statistics';
+import HowToHelp from './HowToHelp';
 
 const Home = () => {
 	return (
@@ -11,6 +12,7 @@ const Home = () => {
 			<Banner />
 			<AboutUs />
 			<Statistics />
+			<HowToHelp />
 			<SupportSection />
 			<HowItWorks />
 			<ContactUs />

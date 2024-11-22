@@ -1,12 +1,4 @@
-import {
-	Calendar,
-	Heart,
-	Home,
-	LayoutDashboard,
-	LogIn,
-	Menu,
-	X,
-} from 'lucide-react';
+import { Heart, LogIn, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -14,18 +6,19 @@ import { useAuth } from '../../hooks';
 const navLinks = [
 	{
 		text: 'Home',
-		icon: <Home size={16} />,
 		href: '/',
 	},
 	{
 		text: 'Campaigns',
-		icon: <Calendar size={16} />,
 		href: '/campaigns',
 	},
 	{
 		text: 'Dashboard',
-		icon: <LayoutDashboard size={16} />,
 		href: '/dashboard',
+	},
+	{
+		text: 'How To Help',
+		href: '/how-to-help',
 	},
 ];
 const Navbar = () => {
@@ -53,7 +46,6 @@ const Navbar = () => {
 								to={link.href}
 								className="flex items-center space-x-1 hover:text-[#62B6CB] transition-colors"
 							>
-								{link.icon}
 								<span>{link.text}</span>
 							</NavLink>
 						))}

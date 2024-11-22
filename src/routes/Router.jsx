@@ -6,6 +6,7 @@ import CampaignsPage from '../pages/CampaignsPage';
 import Dashboard from '../pages/Dashboard';
 import DonationDetails from '../pages/DonationDetails';
 import Home from '../pages/Home';
+import HowToHelp from '../pages/HowToHelp';
 import NotFoundPage from '../pages/NotFound';
 import Profile from '../pages/Profile';
 import PrivateRoutes from './PrivateRoutes';
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
 						<Profile />
 					</PrivateRoutes>
 				),
+			},
+			{
+				path: '/how-to-help',
+				element: <HowToHelp />,
 			},
 		],
 	},
