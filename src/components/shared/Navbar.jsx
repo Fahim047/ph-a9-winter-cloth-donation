@@ -1,25 +1,38 @@
-import { Calendar, Heart, Home, LogIn, Menu, X } from 'lucide-react';
+import {
+	Calendar,
+	Heart,
+	Home,
+	LayoutDashboard,
+	LogIn,
+	Menu,
+	X,
+} from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAuth } from '../../hooks';
-
+const navLinks = [
+	{
+		text: 'Home',
+		icon: <Home size={16} />,
+		href: '/',
+	},
+	{
+		text: 'Campaigns',
+		icon: <Calendar size={16} />,
+		href: '/campaigns',
+	},
+	{
+		text: 'Dashboard',
+		icon: <LayoutDashboard size={16} />,
+		href: '/dashboard',
+	},
+];
 const Navbar = () => {
 	const { user, handleLogOut } = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoggedIn] = useState(false);
-	const navLinks = [
-		{
-			text: 'Home',
-			icon: <Home size={16} />,
-			href: '/',
-		},
-		{
-			text: 'Campaigns',
-			icon: <Calendar size={16} />,
-			href: '/campaigns',
-		},
-	];
+
 	return (
 		<nav className="sticky top-0 z-50 bg-primary text-white shadow-lg">
 			<div className="max-w-7xl mx-auto px-4">

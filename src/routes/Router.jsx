@@ -3,9 +3,11 @@ import LoginForm from '../components/forms/LoginForm';
 import RegisterForm from '../components/forms/RegisterForm';
 import MainLayout from '../layouts/MainLayout';
 import CampaignsPage from '../pages/CampaignsPage';
+import Dashboard from '../pages/Dashboard';
 import DonationDetails from '../pages/DonationDetails';
 import Home from '../pages/Home';
 import NotFoundPage from '../pages/NotFound';
+import Profile from '../pages/Profile';
 import PrivateRoutes from './PrivateRoutes';
 
 const router = createBrowserRouter([
@@ -53,6 +55,22 @@ const router = createBrowserRouter([
 					}
 					return campaign;
 				},
+			},
+			{
+				path: 'dashboard',
+				element: (
+					<PrivateRoutes>
+						<Dashboard />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: 'profile',
+				element: (
+					<PrivateRoutes>
+						<Profile />
+					</PrivateRoutes>
+				),
 			},
 		],
 	},
