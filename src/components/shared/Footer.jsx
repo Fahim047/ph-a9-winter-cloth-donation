@@ -1,10 +1,11 @@
 import { Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FooterLink = ({ text }) => (
 	<li>
-		<a href="#" className="text-gray-300 hover:text-white transition-colors">
+		<Link to="/" className="text-gray-300 hover:text-white transition-colors">
 			{text}
-		</a>
+		</Link>
 	</li>
 );
 

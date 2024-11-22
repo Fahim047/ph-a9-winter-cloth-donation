@@ -3,6 +3,7 @@ import 'swiper/css/bundle';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Link } from 'react-router-dom';
 import { slides } from '../../data';
 const Banner = () => {
 	return (
@@ -52,15 +53,17 @@ const Banner = () => {
 									>
 										{slide.description}
 									</p>
-									<button
-										className="bg-secondary hover:bg-secondary-dark text-white px-8 py-3 rounded-lg flex items-center gap-2 mx-auto transition-all transform hover:scale-105"
-										data-aos="fade-up"
-										data-aos-duration="1000"
-										data-aos-delay="400"
-									>
-										Donate Now
-										<ArrowRight size={20} />
-									</button>
+									<Link to="/campaigns">
+										<button
+											className="btn bg-secondary hover:bg-secondary-dark text-white rounded-lg flex items-center gap-2 mx-auto transition-all border-none transform hover:scale-105"
+											data-aos="fade-up"
+											data-aos-duration="1000"
+											data-aos-delay="400"
+										>
+											Donate Now
+											<ArrowRight size={20} />
+										</button>
+									</Link>
 								</div>
 							</div>
 						</div>

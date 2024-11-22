@@ -1,8 +1,6 @@
-import React from 'react';
-
 const SupportSection = () => {
 	return (
-		<div className="max-w-7xl mx-auto p-12">
+		<div className="max-w-6xl my-12 mx-auto py-12 px-4">
 			<div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
 				<img
 					src="https://svdpli.org/wp-content/uploads/2023/07/iStock-1393245537-1_11zon-1024x683.jpg"
